@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+#define lim 10000
+#define lim_builds 5000
+#define n 3
+
+// conferir tamanho de edificios.
+
+int max_size(int analise){
+	int builds[n][n];
+	mapbuilds(builds);
+	int *p;
+	int g;
+	int h;
+	for (g=0;g<lim_builds;++g){ 
+			h = 0;
+			for(h=0;h<n;++h){
+							
+		}
+	}
+}
+
+//mapear edificios
+
+int mapbuilds(int builds[n][n]){
+int n_builds;
+int i;
+int a;
+
+	for (n_builds = 0; n_builds < lim_builds ; n_builds++){
+	
+		// escreve uma linha na matriz.
+		
+		for (i=0;i<lim_builds;++i){ 
+			a = 0;
+			n_builds++;
+			for(a=0;a<n;++a){
+				scanf("%d",&builds[i][a]);
+			}
+		}
+		// escreve no ecrã uma o vetor.
+		
+			for (i=0;i<lim_builds;++i){
+				printf("\n");
+					for(a=0;a<n;a++){
+						printf("%d",builds[i][a]);
+					}
+			}	
+	}	
+		// escreve o numero de edificios.
+		printf("\n");
+		printf("Numero de edificios: %d",n_builds);
+}
+
+
+	
+
+
+int main (){
+	int i;
+	int a;
+	int analise;
+	int builds[n][n];
+	mapbuilds(builds);
+	max_size(analise);
+	
+	
+}	
+
