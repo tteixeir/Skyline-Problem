@@ -4,63 +4,68 @@
 
 
 #define lim 10000
-#define lim_builds 7
+#define lim_builds 400
 #define n 3
 
-//mapear edificios
 
-int mapbuilds(int builds[n][n]){
+//mapear edificios
+int mapbuilds(unsigned int builds[n][n],int erro){
 int n_builds;
 int i;
 int a;
 int analise = 0;
-int erro = 0;
 
-	for (n_builds = 0; n_builds < lim_builds ; n_builds++){
-	
+printf("escreva as cordenadas que desejar até 500 edificios.\n");
+
+	for (n_builds = 0; n_builds < lim_builds; ){
+						
 		// escreve uma linha na matriz.
-		
 		for (i=0;i<lim_builds;++i){ 
 			a = 0;
-			n_builds++;
-			for(a=0;a<n;++a){
-				scanf("%d",&builds[i][a]);
-				
+			++n_builds;	
+			for(a=0;a<n;a++){
+				scanf("%d",&builds[i][a]);	
 			}
 		}
-		// escreve no ecrã uma o vetor.
-		
-			for (i=0;i<lim_builds;++i){
-			//	printf("\n");
-					for(a=0;a<n;a++){
-					//	printf("%d",builds[i][a]);
-						
-						// analise de tamanho dos edificios.                // a impressão tá desabilitada 
-						analise = builds[i][a];
-							if (analise > lim){
-							//	printf(" erro ");
-								erro ++;
-							}else{
-							//	printf(" tudo bem ");
-						}
-					}
-			}	
-	}	
-		// escreve o numero de edificios.
-	//	printf("\n");
-	//	printf("Numero de edificios: %d",n_builds);
-		if (erro > 0){
+		i = 0;
+		// escreve e analisa a matriz.
+		for (i=0;i<lim_builds;++i){
 			printf("\n");
-			printf (" edificio/s fora dos limites.");
-		}
+			printf("edificio i: %d       ",i);
+			for(a=0;a<n;a++){        
+				analise = builds[i][a];
+				
+				printf("%d",builds[i][a]);
+				if (analise > lim){
+					printf(" erro ");
+					erro ++;
+				}else{
+					printf(" bem ");
+				}
+			}
+		}	
+//	}
+
+	// escerver o numero de erros
+	if (erro > 0){
+	printf("\n");
+	printf ("Edificio/s fora dos limites.");
+	}
+				
+	// escreve o numero de edificios.
+	printf("\n");
+	printf("Numero de edificios: %d  erros: %d",n_builds,erro);
+	return 0;
+}
 }
 
 
 int main (){
-	int i;
-	int a;
-	int analise;
-	int builds[n][n];
-	mapbuilds(builds);
+	
+	int erro;
+	unsigned static int builds[n][n];
+	mapbuilds(builds,erro);
+	return 0;
 	
 }	
+
