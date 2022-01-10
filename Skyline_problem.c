@@ -8,11 +8,13 @@
 #define N 3
 
 
-//mapear edificios
-int mapbuilds(int builds[][N]){
+int main (){
+int builds[LIM_BUILDS][N];
 int i;
 int a;
-int b;
+int j;
+int f;
+
 int n_builds = 0;
 int analise = 0;
 int erro = 0;
@@ -20,19 +22,17 @@ int erro = 0;
 int li = 0;
 int hi = 0;
 int ri = 0;
-int h = 0;
-int res[LIM_BUILDS][2];
+int height[LIM] = {0};
 
-
-printf("quantos edificios vai querer usar. (limite de 5000): ");
+printf("How many buildings will you want to analyse.(limit of 5000): ");
 scanf("%d",&n_builds);
 
 
 
 if (n_builds>LIM_BUILDS){
-	printf ("passou o limite de edificios.");
+	printf ("Exceeded the building limit.");
 	}else{
-		printf("Intruduza as cordenados dos edificios:\n");
+		printf("Enter the building coordinates:\n");
 					
 		// read array
 		for (i=0;i<n_builds;i++){ 	
@@ -42,7 +42,7 @@ if (n_builds>LIM_BUILDS){
 		}
 		
 		// escreve e analisa a matriz.
-		printf("\nIMPUT dado.");
+		printf("\n----------------------IMPUT--------------------------\n");
 		for (i=0;i<n_builds;i++){
 			printf("\n");
 			printf("edificio: %d       ",i+1);
@@ -51,57 +51,44 @@ if (n_builds>LIM_BUILDS){
 				
 				printf("%3d",builds[i][a]);
 				if (analise > LIM){
-					printf(" erro ");
+					printf("  wrong  ");
 					erro ++;
 				}else{
-					printf("  bem ");
+					printf("  good  ");
 				}
 			}
 		}
 	}
-	
-	printf("\n\nNumero de erros/edificios fora dos parametros: %d \n",erro);
-	
-	// resolver o problema
-	
-	if(erro == 0){
-		i=0;
-		printf("\n inicio da avaliacao");
-			res[i][0] = builds[i][0];
-			res[i][1] = builds[i][1];
-		for (i=0;i<n_builds;i++){
+	printf("\n");
+	i=1;
 		
-			if (builds[i][1]>builds[i+1][1]){
-				if(builds[i][2]<builds[i+1][2]){
-					if(builds)
-					res[i][0]=builds[i][0];
-					res[i][1]=builds[i][1];
-					
-					res[i][1]=builds[i][2];
-					res[i][1]=builds[i][1];
-							
-				}	
+	if(erro==0){
+		printf("\n-----------------------OUTPUT-------------------------\n");	
+		printf("\n");
+		while (i<n_builds){
+			for (f=0;f<n_builds;f++){
+			
+	 			li = builds [f][0];
+	 			hi = builds [f][1];
+	 			ri = builds [f][2];
+	 		
+   				for(j=li;j<ri;++j){
+       				if (height[j] < hi){
+          				height[j] = hi;
+   					}
+				}		
+			}
+	
+			for (i = 1; i < LIM; ++i) {
+    			if (height[i-1] != height[i]) {
+      				printf(" %d %d ", i, height[i]);
+    			}
 			}
 		}
-		for (i=0;i<n_builds;i++){ 	
-				for(a=0;a<2;a++){
-					printf(" %d ",res[i][a]);	
-				}
-		}	
-	printf("\n fim da avaliacao");
 	}else{
-		
-	}
-	
-	return 0;
+		printf("\nNumber of errors: %d \n",erro);
+		printf("\nPlease restart the program");
+	}	
+	printf("\n\nNumber of buildings analyzed: %d \n",n_builds);
+	return 0;	
 }
-
-
-int main (){
-	int n_builds = 0;
-	int erro;
-	int builds[LIM_BUILDS][N];
-	mapbuilds(builds);	
-	return 0;
-	
-}	
