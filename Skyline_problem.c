@@ -83,7 +83,7 @@ if (n_builds>LIM_BUILDS){
     			if (height[i-1] != height[i]) {
       				printf(" %d %d ", i, height[i]);
     			}
-			}
+		    }
 		}
 	}else{
 		printf("\nNumber of errors: %d \n",erro);
